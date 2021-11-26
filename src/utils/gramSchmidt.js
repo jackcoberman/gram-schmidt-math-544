@@ -5,22 +5,16 @@ const dotProduct = (vector1, vector2) => {
     for (let i = 0; i < vector1.length; ++i) {
         sum += vector1[i] * vector2[i];
     }
-    console.log("dot product is " + sum);
     return sum;
 }
 
 const scaleVector = (scale, vector) => {
     let v = vector.map(x => x * scale);
-    console.log("Scale: " + scale);
-    console.log("OG vector : " + vector);
-    console.log(v);
     return v;
 }
 
 const addVectors = (vector1, vector2) => {
     let vector = [];
-    console.log("v1 " + vector1);
-    console.log("v2 " + vector2)
     for (let i = 0; i < vector1.length; ++i) {
         vector.push(vector1[i] + vector2[i]);
     }
@@ -28,14 +22,11 @@ const addVectors = (vector1, vector2) => {
 }
 export const gramSchmidt = (matrix) => {
     // inspired by the Gram Schmidt Algorithm I had to write in Linear Algebra Lab
-    let rows = matrix.length;
-    // let cols = matrix[0].length;
     let Q = clonedeep(matrix);
 
     // compute orthogonal vectors
-    for (let i = 1; i < rows; ++i) {
+    for (let i = 1; i < Q.length; ++i) {
         let vecSum = clonedeep(Q[i].map(val => val != 0 ? 0 : 0));
-        // console.log(vecSum);
         for (let j = 0; j < i; ++j) {
             if (dotProduct(Q[j],Q[j]) != 0) {
                 vecSum = addVectors(vecSum, scaleVector(-1 * ((dotProduct(Q[j], Q[i])/dotProduct(Q[j],Q[j]))), Q[j])); 
@@ -58,6 +49,5 @@ export const gramSchmidt = (matrix) => {
             i--;
         }
     }
-    console.log(Q);
     return Q;
 };

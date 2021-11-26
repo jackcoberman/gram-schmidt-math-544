@@ -26,14 +26,13 @@
         </v-row>
         <v-spacer/>
         <v-container v-if="hasLengths">
-            <!-- <h1>Row length is {{rowLength}} and column length is {{columnLength}}</h1> -->
             <template v-for="(row,r) in originalMatrix">
-                <v-row :key="r">
+                <v-row :key="r" align="center">
                     <template v-for="(col, c) in row">
-                        <v-col :key="c" cols="1">
+                        <v-col :key="c" class="eq-col" cols="1" align="right">
                             <span>{{r}},{{c}} =</span>
                         </v-col>
-                        <v-col :key="-(c+1)">
+                        <v-col :key="-(c+1)" class="num-col">
                             <v-text-field
                                 v-model="originalMatrix[r][c]"
                                 :value="originalMatrix[r][c]"
@@ -87,16 +86,13 @@ export default {
                 }
             }
             this.gramSchmidted = false;
-            // console.log(this.originalMatrix);
         },
         gramSchmidt () {
             this.originalMatrix = this.originalMatrix.map(row => row = row.map(
                 x => x = parseInt(x)
             ));
             this.matrix = clonedeep(this.originalMatrix);   
-            // console.log(this.matrix);
             this.Q = gramSchmidt(this.matrix);
-            // console.log(this.Q);
             this.gramSchmidted = true;
         }
     },
@@ -110,6 +106,13 @@ export default {
 
 <style>
     .matrix-entry {
-        max-width: 30px !important;
+        max-width: 35px !important;
+    }
+    .eq-col {
+        padding-right: 0px !important;
+        /* width: 60% !important; */
+    }
+    .num-col {
+        padding: 0px !important;
     }
 </style>
