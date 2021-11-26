@@ -46,17 +46,21 @@
             </template>
         </v-container>
         <v-btn @click="printMatrix">Print Matrix</v-btn>
+        <v-btn @click="gramSchmidt">Print Gram-Schmidt</v-btn>
     </v-container>
 </template>
 
 <script>
+import { gramSchmidt } from '@/utils/gramSchmidt';
+
 export default {
     name: 'HomePage',
     data () {
         return {
             rowLength: 0,
             columnLength: 0,
-            originalMatrix: []
+            originalMatrix: [],
+            Q: []
         };
     },
     methods: {
@@ -68,10 +72,16 @@ export default {
                     this.originalMatrix[r].push(0);
                 }
             }
-            console.log(this.originalMatrix);
+            // console.log(this.originalMatrix);
         },
         printMatrix () {
             console.log(this.originalMatrix);
+        },
+        gramSchmidt () {
+            this.Q = gramSchmidt(this.originalMatrix.map(row => row = row.map(
+                x => x = parseInt(x)
+            )));
+            console.log(this.Q);
         }
     },
     computed: {
