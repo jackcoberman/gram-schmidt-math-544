@@ -1,5 +1,11 @@
 # gram-schmidt-math-544
-
+```
+Jack Oberman
+Final Project: Gram-Schmidt Algorithm
+MATH 544: Linear Algebra
+Prof. Matthew Ballard
+December 3, 2021
+```
 ## Project setup
 ```
 npm install
