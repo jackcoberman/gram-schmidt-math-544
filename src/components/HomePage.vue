@@ -45,7 +45,7 @@
                 </v-row>
             </template>
         </v-container>
-        <v-btn @click="gramSchmidt" v-if="hasLengths">Print Gram-Schmidt</v-btn>
+        <v-btn @click="gramSchmidt" v-if="hasLengths" color="primary">Print Gram-Schmidt</v-btn>
         <v-container v-if="gramSchmidted">
             <h3>Result of Gram-Schmidt</h3>
             <template v-for="(row,r) in Q">

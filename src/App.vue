@@ -29,7 +29,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process"
+        href="https://544.f21.matthewrobertballard.com/notes/vector_spaces/gram_schmidt/"
         target="_blank"
         text
       >

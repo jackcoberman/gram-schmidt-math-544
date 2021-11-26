@@ -19,7 +19,8 @@ const scaleVector = (scale, vector) => {
 
 const addVectors = (vector1, vector2) => {
     let vector = [];
-    console.log(vector1);
+    console.log("v1 " + vector1);
+    console.log("v2 " + vector2)
     for (let i = 0; i < vector1.length; ++i) {
         vector.push(vector1[i] + vector2[i]);
     }
@@ -33,28 +34,30 @@ export const gramSchmidt = (matrix) => {
 
     // compute orthogonal vectors
     for (let i = 1; i < rows; ++i) {
-        let vecSum = clonedeep(Q[i].map(val => val = val/val - 1));
+        let vecSum = clonedeep(Q[i].map(val => val != 0 ? 0 : 0));
         // console.log(vecSum);
         for (let j = 0; j < i; ++j) {
-            vecSum = addVectors(vecSum, scaleVector(-1 * ((dotProduct(Q[j], Q[i])/dotProduct(Q[j],Q[j]))), Q[j])); 
+            if (dotProduct(Q[j],Q[j]) != 0) {
+                vecSum = addVectors(vecSum, scaleVector(-1 * ((dotProduct(Q[j], Q[i])/dotProduct(Q[j],Q[j]))), Q[j])); 
+            }
         }
         Q[i] = addVectors(vecSum, Q[i]);
     }
 
     // drop redundant vectors
-    // for (let i = 0; i < Q.length; ++i) {
-    //     let hasNullity = false;
-    //     for (let j = 0; j < Q[i].length; ++j) {
-    //         if (Number.isNaN(Q[i][j])) {
-    //             hasNullity = true;
-    //             break;
-    //         }
-    //     }
-    //     if (hasNullity) {
-    //         Q.pop(i);
-    //         i--;
-    //     }
-    // }
+    for (let i = 0; i < Q.length; ++i) {
+        let hasNullity = true;
+        for (let j = 0; j < Q[i].length; ++j) {
+            if (Q[i][j] != 0) {
+                hasNullity = false;
+                break;
+            }
+        }
+        if (hasNullity) {
+            Q.pop(i);
+            i--;
+        }
+    }
     console.log(Q);
     return Q;
 };
