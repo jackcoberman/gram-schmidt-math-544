@@ -9,6 +9,7 @@
                     placeholder="0"
                     clearable
                     type="number"
+                    @change="sizeChange"
                 />
             </v-col>
             <v-col>
@@ -19,9 +20,32 @@
                     value="0"
                     clearable
                     type="number"
+                    @change="sizeChange"
                 />
             </v-col>
         </v-row>
+        <v-spacer/>
+        <v-container v-if="hasLengths">
+            <h1>Row length is {{rowLength}} and column length is {{columnLength}}</h1>
+            <template v-for="(row,r) in originalMatrix">
+                <v-row :key="r">
+                    <template v-for="(col, c) in row">
+                        <v-col :key="c" cols="1">
+                            <span>{{r}},{{c}} =</span>
+                        </v-col>
+                        <v-col :key="-(c+1)">
+                            <v-text-field
+                                v-model="originalMatrix[r][c]"
+                                :value="originalMatrix[r][c]"
+                                type="number"
+                                class="matrix-entry"
+                            />
+                        </v-col>
+                    </template>
+                </v-row>
+            </template>
+        </v-container>
+        <v-btn @click="printMatrix">Print Matrix</v-btn>
     </v-container>
 </template>
 
@@ -31,17 +55,35 @@ export default {
     data () {
         return {
             rowLength: 0,
-            columnLength: 0
+            columnLength: 0,
+            originalMatrix: []
         };
     },
     methods: {
         sizeChange () {
-
+            this.originalMatrix = [];
+            for (let r = 0; r < this.rowLength; ++r) {
+                this.originalMatrix.push([]);
+                for (let c = 0; c < this.columnLength; ++c) {
+                    this.originalMatrix[r].push(0);
+                }
+            }
+            console.log(this.originalMatrix);
+        },
+        printMatrix () {
+            console.log(this.originalMatrix);
+        }
+    },
+    computed: {
+        hasLengths () {
+            return this.rowLength > 0 && this.columnLength > 0;
         }
     }
 }
 </script>
 
 <style>
-
+    .matrix-entry {
+        max-width: 30px !important;
+    }
 </style>
