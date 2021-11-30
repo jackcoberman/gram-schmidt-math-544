@@ -1,3 +1,5 @@
+const randomMatrix = require('../../src/utils/gramSchmidt');
+
 const DEPENDENT_MATRIX = [
     [1,2,3],
     [2,4,6],
@@ -24,9 +26,12 @@ const LARGE_MATRIX = [
     [0,0,-10,10,10]
 ];
 
+const RANDOM_MATRIX = randomMatrix.randomMatrix();
+
 module.exports = {
     DEPENDENT_MATRIX,
     NEGATIVE_DEPENDENT_MATRIX,
     SMALL_MATRIX,
-    LARGE_MATRIX
+    LARGE_MATRIX,
+    RANDOM_MATRIX
 };

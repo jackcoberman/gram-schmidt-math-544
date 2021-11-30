@@ -26,4 +26,11 @@ describe('Gram-Schmidt tests', () => {
     //     const res = gramSchmidt.gramSchmidt(models.LARGE_MATRIX);
     //     console.log(res);
     // });
+
+    it('it should successfully compute for a random matrix', () => {
+        const matrix = models.RANDOM_MATRIX;
+        console.log(matrix);
+        const res = gramSchmidt.gramSchmidt(matrix);
+        console.log(res);
+    });
 });

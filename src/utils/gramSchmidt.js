@@ -51,3 +51,20 @@ export const gramSchmidt = (matrix) => {
     }
     return Q;
 };
+
+const randInt = (min, max) => { // return randInt between min inclusive and max exclusive
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+export const randomMatrix = () => {
+    const rowSize = randInt(1,21);
+    const colSize = randInt(1,21);
+    let matrix = [];
+    for (let r = 0; r < rowSize; ++r) {
+        matrix.push([]);
+        for (let c = 0; c < colSize; ++c) {
+            matrix[r].push(randInt(-99,100)); // full with random ints less than 3 digits
+        }
+    }
+    return matrix;
+};
