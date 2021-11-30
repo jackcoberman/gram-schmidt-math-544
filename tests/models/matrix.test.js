@@ -3,6 +3,7 @@
 const models = require('../data/matrix.data');
 const gramSchmidt = require('../../src/utils/gramSchmidt');
 
+// TO-DO: Update readme, add more tests, and either call sage to check results or output results in a manner that can be directly copied to sage
 describe('Gram-Schmidt tests', () => {
     it('it should successfully compute with linear dependence', () => {
         const res = gramSchmidt.gramSchmidt(models.DEPENDENT_MATRIX);
@@ -33,4 +34,4 @@ describe('Gram-Schmidt tests', () => {
         const res = gramSchmidt.gramSchmidt(matrix);
         console.log(res);
     });
-});
+}); 
