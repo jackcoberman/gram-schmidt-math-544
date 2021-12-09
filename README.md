@@ -8,8 +8,8 @@ December 9, 2021
 ```
 ### What it does:
 ````
-The Gram-Schmidt algorithm accepts a finite set of vectors that spans a k-dimensional vector space and 
-outputs a set of orthogonal vectors that spans the same vector space. 
+The Gram-Schmidt algorithm accepts a finite set of vectors that spans a k-dimensional vector space and outputs a set of orthogonal 
+vectors that spans the same vector space. 
 ````
 ### Its history and namesakes:
 ```
