@@ -21,7 +21,6 @@ const addVectors = (vector1, vector2) => {
     return vector;
 }
 export const gramSchmidt = (matrix) => {
-    // inspired by the Gram Schmidt Algorithm I had to write in Linear Algebra Lab
     let Q = clonedeep(matrix);
 
     // compute orthogonal vectors
@@ -50,4 +49,21 @@ export const gramSchmidt = (matrix) => {
         }
     }
     return Q;
+};
+
+const randInt = (min, max) => { // return randInt between min inclusive and max exclusive
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+export const randomMatrix = () => {
+    const rowSize = randInt(1,21);
+    const colSize = randInt(1,21);
+    let matrix = [];
+    for (let r = 0; r < rowSize; ++r) {
+        matrix.push([]);
+        for (let c = 0; c < colSize; ++c) {
+            matrix[r].push(randInt(-99,100)); // fill with random ints less than 3 digits
+        }
+    }
+    return matrix;
 };
