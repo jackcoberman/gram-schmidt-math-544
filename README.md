@@ -13,16 +13,12 @@ vectors that spans the same vector space.
 ````
 ### Its history and namesakes:
 ```
-The Gram-Schmidt algorithm is named after Danish mathematician Jørgen 
-Pedersen Gram and German mathematician Erhard Schmidt, although it had 
-been previously discovered by other mathematicians.  Besides this algorithm, 
-Gram is well known for his contributions to helping solve the 8th of 
-Hilbert's problems, the Riemann Hypothesis, for his proposed series of the 
-Riemann zeta funciton. Schmidt was mentored by David Hilbert during his time 
-at the University of Göttingen, and Zermelo credited him for helping inspire 
-the idea and method of the proof of the Well-ordering theorem. Schmidt was 
-also a noted Nazi, having to carry out several resolutions against Jews 
-during his time at the University of Berlin. 
+The Gram-Schmidt algorithm is named after Danish mathematician Jørgen Pedersen Gram and German mathematician Erhard Schmidt, 
+although it had been previously discovered by other mathematicians.  Besides this algorithm, Gram is well known for his 
+contributions to helping solve the 8th of Hilbert's problems, the Riemann Hypothesis, by his proposed series of the Riemann zeta 
+function. Schmidt was mentored by David Hilbert during his time at the University of Göttingen, and Zermelo credited him for helping 
+inspire the idea and method of the proof of the Well-ordering theorem. Schmidt was also a noted Nazi, having to carry out several 
+antisemitic resolutions during his time at the University of Berlin. 
 ```
 ## Project setup
 ```
