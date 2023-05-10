@@ -6,6 +6,8 @@ MATH 544: Linear Algebra
 Prof. Matthew Ballard
 December 9, 2021
 ```
+![image](https://github.com/jackcoberman/gram-schmidt-math-544/assets/54275749/eaade8fd-072d-495c-b9a1-f39c62cc7f31)
+```
 ### What it does:
 ````
 The Gram-Schmidt algorithm accepts a finite set of vectors that spans a k-dimensional vector space and
